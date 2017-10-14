@@ -249,30 +249,6 @@
 	equip(var/mob/living/carbon/human/H)
 		..()
 		H.add_stats(rand(9,12), rand(9,12), rand(6,9))
-//kid roles
-/datum/job/ouvrier
-	selection_color = "#7c6a2e"
-	title = "Cargo Kid"
-	supervisors = "the Quartermaster"
-	minimal_player_age = 16
-	economic_modifier = 2
-	ideal_character_age = 21
-	total_positions = 2
-	spawn_positions = 2
-	faction = "Station"
-	department_flag = SUP
-	department = "Supply"
-	access = list(access_maint_tunnels, access_mailsorting, access_manufacturing, access_cargo, access_cargo_bot, access_mining, access_mining_station)
-	minimal_access = list(access_maint_tunnels, access_mailsorting, access_manufacturing, access_cargo, access_cargo_bot, access_mining, access_mining_station)
-	account_allowed = 0			  //This breaks things.
-	create_record = 1             //No one gives a fuck about kids lol.
-	has_email = 0				  //Nor do kids get email accounts.
-	outfit_type = /decl/hierarchy/outfit/job/cargo_kid
-
-	equip(var/mob/living/carbon/human/H)
-		H.set_species("Child")//Actually makes them a child. Called before ..() so they can get their clothes.
-		H.add_stats(rand(3,6), rand(12,16), rand(6,9))
-		..()
 
 /datum/job/medassist
 	selection_color = "#633d63"

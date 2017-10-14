@@ -86,8 +86,3 @@
 	id_type = /obj/item/weapon/card/id/dreyfus/hos
 	pda_type = /obj/item/device/pda/heads/hos
 
-/decl/hierarchy/outfit/job/cargo_kid
-	name = OUTFIT_JOB_NAME("Cargo Kid")
-	uniform = /obj/item/clothing/under/child_jumpsuit
-	shoes = /obj/item/clothing/shoes/child_shoes
-	id = /obj/item/weapon/card/id/dreyfus/cargo

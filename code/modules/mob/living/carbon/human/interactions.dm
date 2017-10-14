@@ -203,7 +203,10 @@ mob/living/carbon/human/proc/cum(mob/living/carbon/human/H as mob, mob/living/ca
 mob/living/carbon/human/proc/fuck(mob/living/carbon/human/H as mob, mob/living/carbon/human/P as mob, var/hole)
 	//var/ya = "&#1103;"
 	var/message = ""
-
+	if(H.age <= 14 | P.age <= 14)
+		H.gib()
+		H.visible_message("<B>Uh-uh</B>.")
+		return
 	switch(hole)
 
 		if("vaglick")
