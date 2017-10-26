@@ -1,4 +1,4 @@
-#define CANEDIT     0x1	// 0x0001
+#define CANEDIT     0x1	// 0001
 #define CANINVITE   0x2	// 0010
 #define CANKICK 	0x4	// 0100
 #define CANPROMOTE	0x8	// 1000
@@ -18,6 +18,7 @@ Factions: Because we should all get along
   	- C and DM apparently don't have tuples, so this will be in member_ranks and member as parallel lists
   Ranks - Datum List - List of the ranks relevant to the faction.
   InviteRank - Rank ref, this is the rank new recruits end up in.
+  //TODO - Diplomacy - Enemy, Neutral, Ally
 */
 
 /*
@@ -37,22 +38,10 @@ Ranks: An excercise in graphing and tree traversal
 	var/ranks = NULL //list of ranks created for this faction /rank
 	var/invite_rank = NULL //default rank for the faction /rank
 	
+	
 /rank
 	var/name = "Faction Boss"
 	var/commanded_by = NULL //Either /rank reference for the rank that commands this one, or null if no commander (i.e. owner)
 	var/commands = NULL
 	//If you can set these options for other ranks. can only toggle if you have the ability (i.e. cant let others kick people if you cant)
 	var/perm |= CANEDIT | CANINVITE | CANKICK | CANPROMOTE // I dont actually know what im doing, but this looks really impressive, right?
-	
-/rank/proc/can_edit(/rank/R)
-	var/hit_null = 0
-	var/rank/cur_rank = R
-	while(!hit_null)
-		if(is_type(cur_rank.commanded_by, /rank))
-			if(cur_rank.commanded_by == src)
-				return 1
-			else
-				cur_rank = cur_rank.commanded_by
-		else
-			hit_null = 1
-	return 0
