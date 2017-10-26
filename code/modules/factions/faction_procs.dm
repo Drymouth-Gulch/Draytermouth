@@ -8,32 +8,26 @@ Returns:
 
 
 /*
-Name: can edit
-Purpose: Checks if current rank (src) can edit rank R
+Name: under chain of command
+Purpose: Checks if current rank (src) has CoC of /rank/R, and thus has edit/promote priveledges
 Params: rank/R -> The rank datum that we want to check
-Returns: 1 for we can edit, and 0 for we cant
-- Edit is based on wether this rank falls under our chain of command
+Returns: 1 for we can command, and 0 for we cant
 */
-/rank/proc/can_edit(/rank/R)
-	var/hit_null = 0
-	var/rank/cur_rank = R
-	while(!hit_null)
-		if(is_type(cur_rank.commanded_by, /rank))
-			if(cur_rank.commanded_by == src)
-				return 1
-			else
-				cur_rank = cur_rank.commanded_by
+/rank/proc/under_command(/rank/R)
+	for(/rank/C in commands)
+		if(C == R) //If the current rank found in loop is the rank we're checking
+			return 1
 		else
-			hit_null = 1
-	return 0
-
+			if(under_command(/rank/C)) //Recursively checks for the children of C
+	return 0		
+		
 /*
 Name: Set commanded by
 Purpose: Moves a rank under another rank, and tidies up any other connects
 Params: rank/R - The rank we are now commanded by
 Returns: 1 for successful, 0 for error
 */
-
+/rank/proc/
 /*
 Name: Delete rank
 Purpose: Deletes a rank from the faction, any ranks that are commanded by this are now commanded by whatever this rank is commanded by
