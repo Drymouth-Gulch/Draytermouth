@@ -41,7 +41,8 @@ Ranks: An excercise in graphing and tree traversal
 	
 /rank
 	var/name = "Faction Boss"
+	var/fac = NULL //Faction this rank belongs to
 	var/commanded_by = NULL //Either /rank reference for the rank that commands this one, or null if no commander (i.e. owner)
-	var/commands = NULL
+	var/commands = NULL //List of ranks this one directly commands
 	//If you can set these options for other ranks. can only toggle if you have the ability (i.e. cant let others kick people if you cant)
 	var/perm |= CANEDIT | CANINVITE | CANKICK | CANPROMOTE // I dont actually know what im doing, but this looks really impressive, right?
