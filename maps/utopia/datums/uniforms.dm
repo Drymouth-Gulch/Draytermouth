@@ -49,13 +49,14 @@
 	id_type = /obj/item/weapon/card/id/engineering
 	pda_type = /obj/item/device/pda/engineering
 
+/*REMOVED KID OUTFIT
 /decl/hierarchy/outfit/job/dreyfus/ouvrier
 	name = OUTFIT_JOB_NAME("Ouvrier")
 	uniform = /obj/item/clothing/under/overalls
 	id_type = /obj/item/weapon/card/id/dreyfus/cargo/ouvrier
 	pda_type = /obj/item/device/pda/cargo
 	l_ear = /obj/item/device/radio/headset/headset_cargo
-
+*/
 /decl/hierarchy/outfit/job/science/superviseur
 	name = OUTFIT_JOB_NAME("Superviseur")
 	l_ear = /obj/item/device/radio/headset/heads/rd
@@ -85,4 +86,3 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	id_type = /obj/item/weapon/card/id/dreyfus/hos
 	pda_type = /obj/item/device/pda/heads/hos
-
