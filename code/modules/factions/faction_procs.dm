@@ -80,3 +80,23 @@ Returns: 1 if success, 0 if fail
 		newPerms &= CANPROMOTE
 	R.perms = newPerms
 	//Hooray!
+
+/*
+Name: SaveRank
+Purpose: Saves new rank details and either generates a new rank, or updates a current one
+Params: /rank - the rank we are saving. /mob/user - the person calling the save (to check can_edit). /list/D - Data list of name, commanded by, perm list etc.
+Returns: 1 for success, 0 for failure. failure being, this is the owner rank (commanded_by = null), !can_edit etc.
+*/
+/rank/proc/save_rank(/rank/R, /mob/User, list/D)
+	if(!User.rank) //user doesn't have a rank
+		return
+	if(User.rank.faction != R.faction) //If user is trying to edit another faction's rank somehow
+		return
+	if(User.rank.perms != CAN_EDIT) //cant edit
+		return
+	
+	//LAZYBOYE
+
+
+
+
