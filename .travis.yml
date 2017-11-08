@@ -15,6 +15,12 @@ env:
     - TEST=MAP MAP_PATH=exodus
     - TEST=MAP MAP_PATH=torch
     - TEST=MAP MAP_PATH=overmap_example
+    - TEST=MAP MAP_PATH=bunker1
+    - TEST=MAP MAP_PATH=dreyfus
+    - TEST=MAP MAP_PATH=gulag
+    - TEST=MAP MAP_PATH=utopia
+    - TEST=MAP MAP_PATH=warfare
+    - TEST=MAP MAP_PATH=nevada
 
 cache:
   directories:
