@@ -12,7 +12,7 @@
 						/datum/job/engineer,
 						/datum/job/cargo_tech,
 						/datum/job/mining,
-						/datum/job/ouvrier,
+						///datum/job/ouvrier,
 						/datum/job/chef,
 						/datum/job/chaplain,
 						/datum/job/janitor
@@ -250,6 +250,7 @@
 		..()
 		H.add_stats(rand(9,12), rand(9,12), rand(6,9))
 
+/* REMOVED KID ROLE
 /datum/job/medassist
 	selection_color = "#633d63"
 	title = "Medical Assistant"
@@ -275,7 +276,7 @@
 		H.add_stats(rand(3,6), rand(12,16), rand(6,9))
 		H.add_skills(rand(30,50), rand(30,50), rand(65,75))
 		..()
-
+*/
 /datum/job/chef
 	title = "Cook"
 	supervisors = "the Overseer"
