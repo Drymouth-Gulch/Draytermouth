@@ -1,0 +1,52 @@
+/*Ignore this file
+
+this is my work ramblings for sudough code and nonsense, so that I can do the needful when I get a chance
+
+*/
+
+
+/*
+SCOPE FOR FACTIONS
+
+factions
+  name
+  objectives
+  descriptionm
+  members
+  member ranks
+  ranks
+  invite rank
+
+RANKS
+  name
+  faction -> /faction
+  commanded_by
+  commands
+  perms
+
+MOB
+  player factions
+  
+INTERACTIONS
+Mobs:
+  Join/Leave Faction
+  
+Faction:
+  Edit details
+    Name
+    Description
+    Objective
+    invite rank
+  CoC Tree Diagram
+  Disband(?)
+  Kick Players
+  TODO: Diplomacy concept
+
+Rank: - pretty much dun
+  Create save_rank()
+  Delete //delete_rank()
+  Edit: save_rank()
+    Name save_rank()
+    Permissions set_perms()
+    Commanded_by set_commanded_by() and check via under_command
+  commands list is gathered from ranks commanded_by this one, so shouldn't be touched ever
