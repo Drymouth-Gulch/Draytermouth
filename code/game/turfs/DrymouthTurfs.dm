@@ -20,10 +20,32 @@ Ground
 	name = "\proper ground"
 	icon_state = "wasteland1"//
 
+/turf/ground/proc/update_sunlight()
+	var/lum = 0
+	if(sun_light && open_space)
+		for(var/turf/T in RANGE_TURFS(1,src))
+			if(istype(T,/turf/simulated))
+				lum = 1
+				break
+			else if(istype(T,/turf/ground))
+				var/turf/ground/g = T
+				if(g.open_space)
+					lum = 1
+					break
+	if(lum)
+		SetLuminosity(sun_light,0)
+		return
+	SetLuminosity(0)
+	
+/turf/ground/init_lighting()
+	..()
+	update_sunlight()
+
 //Main outdoors ground turf. This procs things like wasteland grass (however this should be reviewed to allow other terrain and plant lists
 /turf/ground/desert
 	name = "\proper desert"
 	icon_state = "wasteland1"//
+	slowdown = 1 //Hard to move on
 
 //Roads need to be rewritten to allow for automatic smoothing
 /turf/ground/road
@@ -39,7 +61,7 @@ Ground
 /turf/ground/mountain
 	name = "\proper mountain"
 	icon_state = "mountain0"//
-
+	slowdown = 1 //Same here
 
 //============WALL TURFS============//
 //I have put all the fallotu 13 walls under f13, for ease of mapping. This will be fixed after first map finished
