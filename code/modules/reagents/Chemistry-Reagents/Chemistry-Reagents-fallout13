@@ -1,0 +1,61 @@
+/datum/reagent/stimpak
+  name = "Stimpak Chemicals"
+  id = "stimpak"
+  description = "Chemicals that are contained in a stimpak, pretty good at healing."
+  taste_description = "bitterness"
+  reagent_state = LIQUID
+  color = "#00BFFF"
+  metabolism = REM * 1.5 //0.3u per life() 
+  scannable = 1
+  flags = IGNORE_MOB_SIZE
+  
+/datum/reagent/stimpak/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+  M.heal_organ_damage(6 * removed, 6 * removed) //6 x metabolism, or 1.8 brute/fire heal every life()
+  M.add_chemical_effect(CE_OXYGENATED, 1) //Dex
+  
+/datum/reagent/super_stimpak
+  name = "Super Stimpak Chemicals"
+  id = "superstimpak"
+  description = "chemicals that are contained in a super stimpak, really good at healing." 
+  taste_description = "strong bitterness"
+  reagent_State = LIQUID
+  color = "#00BFFF"
+  metabolism = REM * 1.5
+  scannable = 1
+  flags = IGNORE_MOB_SIZE
+ 
+/datum/reagent/super_stimpak/affect_blood(Var/mob/living/carbon/M, var/alien, var/removed)
+  M.heal_organ_damage(9 * removed, 9 * removed) //2.7 brute/fire heal
+  M.add_chemical_effect(CE_OXYGENATED, 2) //Dex+
+  
+/datum/reagent/radx
+  name = "Radx"
+  id = "radx"
+  description = "Heals radiation and toxin related damage."
+  taste_description = "unfamiliar"
+  reagent_state = LIQUID
+  color = "#408000"
+  metabolism = REM
+  scannable = 1
+  flags = IGNORE_MOB_SIZE
+  
+/datum/reagent/radx/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+  M.radiation = max(M.radiation - 30 * removed, 0)
+  
+/datum/reagent/mentats
+  name = "mentat powder"
+  id = "mentat"
+  description = "A drug that's well known to make you smart and have great vision."
+  taste_description = "Smartness"
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
