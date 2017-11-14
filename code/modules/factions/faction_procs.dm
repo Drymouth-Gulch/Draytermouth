@@ -1,4 +1,4 @@
-//Proc Template	for pseudo code and future endeavors. 
+//Proc Template	for pseudo code and future endeavors.
 /*
 Name:
 Purpose:
@@ -13,14 +13,14 @@ Purpose: Checks if current rank (src) has CoC of /rank/R, and thus has edit/prom
 Params: rank/R -> The rank datum that we want to check
 Returns: 1 for we can command, and 0 for we cant
 */
-/rank/proc/under_command(/rank/R)
-	for(/rank/C in commands)
+/rank/proc/under_command(var/rank/R)
+	for(var/rank/C in commands)
 		if(C == R) //If the current rank found in loop is the rank we're checking
 			return 1
 		else
-			if(under_command(/rank/C)) //Recursively checks for the children of C
-	return 0		
-		
+			if(under_command(C)) //Recursively checks for the children of C
+	return 0
+
 /*
 Name: Set commanded by
 Purpose: Moves a rank under another rank, and tidies up any other connects
@@ -48,7 +48,7 @@ Returns: 1 for successfully deleted and tidied. 0 for error. Will return 0 if th
 		var/rank/C = R.commanded_by
 		for(/rank/U in commands)
 			U.commanded_by = C //Set the underling to be commanded by R's commander, to squish the gap
-		if(is_type(fac,/faction)
+		if(is_type(C,/faction))
 			fac.ranks.remove(src) //remove this rank from this faction
 		else
 			return 0 //we couldn't delete self from faction, cos we aren't in a faction. This shouldn't ever happen
@@ -94,7 +94,7 @@ Returns: 1 for success, 0 for failure. failure being, this is the owner rank (co
 		return
 	if(User.rank.perms != CAN_EDIT) //cant edit
 		return
-	
+
 	//LAZYBOYE
 
 

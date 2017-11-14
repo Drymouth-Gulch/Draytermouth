@@ -33,16 +33,16 @@ Ranks: An excercise in graphing and tree traversal
 	var/name = "Faction"
 	var/goal = "Seize the means of production"
 	var/info = "Overthrow the politburo. We must take the means of production"
-	var/members = NULL //List of mobs /mob
-	var/member_ranks = NULL //List of ranks, parallel to members. All ranks in here should exist in ranks list /rank
-	var/ranks = NULL //list of ranks created for this faction /rank
-	var/invite_rank = NULL //default rank for the faction /rank
-	
-	
+	var/list/mob/members = null //List of mobs /mob
+	var/list/rank/member_ranks = null //List of ranks, parallel to members. All ranks in here should exist in ranks list /rank
+	var/list/rank/ranks = null //list of ranks created for this faction /rank
+	var/rank/invite_rank = null //default rank for the faction /rank
+
+
 /rank
 	var/name = "Faction Boss"
-	var/fac = NULL //Faction this rank belongs to
-	var/commanded_by = NULL //Either /rank reference for the rank that commands this one, or null if no commander (i.e. owner)
-	var/commands = NULL //List of ranks this one directly commands
+	var/faction/fac = null //Faction this rank belongs to
+	var/rank/commanded_by = null //Either /rank reference for the rank that commands this one, or null if no commander (i.e. owner)
+	var/list/rank/commands = null //List of ranks this one directly commands
 	//If you can set these options for other ranks. can only toggle if you have the ability (i.e. cant let others kick people if you cant)
-	var/perm |= CANEDIT | CANINVITE | CANKICK | CANPROMOTE // I dont actually know what im doing, but this looks really impressive, right?
+	var/perm = CANEDIT | CANINVITE | CANKICK | CANPROMOTE // I dont actually know what im doing, but this looks really impressive, right?
