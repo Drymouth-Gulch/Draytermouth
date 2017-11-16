@@ -154,3 +154,28 @@
 	  if(R != src) //Removes everything but itself
 	  	R.dose = max(R.dose - removed * 5, 0)
   
+/datum/reagent/buffout
+	name = "Buffout"
+	id = "buffout"
+	description = "A chemical that makes it's user much more sturdier."
+	taste_description = "buffness"
+	reagent_state = LIQUID
+	color = "#6D6374"
+	metabolism = REM * 3 //0.6u
+	scannable = 1
+	flags = IGNORE_MOB_SIZE
+	overdose = 1 //Very low overdose so I can get this to actually work.
+ 
+/datum/reagent/buffout/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+  return
+ 
+/datum/reagent/buffout/overdose(var/mob/living/carbon/M, var/alien)
+    if(volume > 2 && M.maxhealth <= 100) //Using overdose as a bad way to check stuff
+        M.maxhealth =+ 25
+        M.health =+ 25
+        M << "You feel much more stronger!"
+    else
+        if(M.maxhealth > 100)
+            M.maxhealth =- 25
+            M.health =- 25
+            M << "You feel much more weaker!"
